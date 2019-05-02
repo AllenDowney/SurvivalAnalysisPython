@@ -1,0 +1,17 @@
+name: SurvivalAnalysisPython
+
+dependencies:
+  - python=3.7
+  - jupyter
+  - numpy
+  - matplotlib
+  - seaborn
+  - pandas
+  - scipy
+  - pip
+  - pip:
+    - empyrical-dist
+
+
+
+
