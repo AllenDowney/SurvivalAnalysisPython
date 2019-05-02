@@ -1,0 +1,28 @@
+Dataset from:
+    
+V.J. Menon and D.C. Agrawal,  Renewal Rate of Filament Lamps: 
+Theory and Experiment. Journal of Failure Analysis and Prevention. 
+December 2007, p. 421, Table 2/
+DOI: 10.1007/s11668-007-9074-9
+
+Description:
+
+An assembly of 50 new Philips (India) lamps with the 
+rating 40 W, 220 V (AC) was taken and installed in the horizontal 
+orientation and uniformly distributed over a lab area 11 m 9 7 m. 
+
+The assembly was monitored at regular intervals of 12 h to
+look for failures. The instants of recorded failures were
+called t‘ and a total of 32 data points were obtained such
+that even the last bulb failed. 
+
+Variables:
+
+i - observation number
+h - time in hours since experiment start
+f - number of failed lamps at particular time h
+K - number of surviving lamps  at particular time h
+
+Short URL:
+
+https://bit.ly/2FleDbZ
