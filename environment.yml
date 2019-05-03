@@ -1,13 +1,16 @@
 name: SurvivalAnalysisPython
-
+channels:
+- conda-forge
+- defaults
 dependencies:
   - python=3.7
   - jupyter
   - numpy
+  - scipy
+  - pandas
   - matplotlib
   - seaborn
-  - pandas
-  - scipy
+  - tabula-py
   - pip
   - pip:
     - empyrical-dist
