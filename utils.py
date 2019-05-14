@@ -60,7 +60,7 @@ def read_stata_dict(dct_file, **options):
             start = int(match.group(1))
             t = line.split()
             vtype, name, fstring = t[1:4]
-            name = name.lower()
+            #name = name.lower()
             if vtype.startswith('str'):
                 vtype = str
             else:
@@ -238,5 +238,5 @@ def legend(**options):
 
     ax = plt.gca()
     handles, labels = ax.get_legend_handles_labels()
-    #TODO: don't draw if there are none
-    ax.legend(handles, labels, **options)
+    if handles:
+        ax.legend(handles, labels, **options)

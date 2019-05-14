@@ -8,9 +8,12 @@ dependencies:
   - numpy
   - scipy
   - pandas
+  - lifelines
+  - pytables
   - matplotlib
   - seaborn
   - tabula-py
+  - wget
   - pip
   - pip:
     - empyrical-dist
