@@ -6,9 +6,9 @@ dependencies:
   - python=3.7
   - jupyter
   - numpy
-  - scipy
+  - scipy>=1.2
   - pandas
-  - lifelines
+  - lifelines>=0.23
   - pytables
   - matplotlib
   - seaborn
@@ -16,8 +16,4 @@ dependencies:
   - wget
   - pip
   - pip:
-    - empyrical-dist
-
-
-
-
+    - empiricaldist
