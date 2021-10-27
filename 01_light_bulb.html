@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Survival Analysis in Python &#8212; Survival Analysis in Python</title>
+    <title>Survival Analysis &#8212; Survival Analysis in Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Kaplan-Meier Estimation" href="02_kaplan_meier.html" />
+    <link rel="next" title="Kaplan-Meier estimation" href="02_kaplan_meier.html" />
     <link rel="prev" title="Survival Analysis in Python" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,12 +91,12 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Survival Analysis in Python
+   Survival Analysis
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_kaplan_meier.html">
-   Kaplan-Meier Estimation
+   Kaplan-Meier estimation
   </a>
  </li>
 </ul>
@@ -200,47 +200,47 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#survival-analysis">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
    Survival Analysis
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#light-bulb-lifetimes">
    Light bulb lifetimes
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pmf">
    PMF
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cdf">
    CDF
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#survival-function">
    Survival function
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hazard-function">
    Hazard function
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-cumulative-hazard-function">
    The cumulative hazard function
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#resampling">
    Resampling
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
    Summary
   </a>
@@ -256,23 +256,12 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="survival-analysis-in-python">
-<h1>Survival Analysis in Python<a class="headerlink" href="#survival-analysis-in-python" title="Permalink to this headline">¶</a></h1>
-<p>Part of <a class="reference external" href="https://allendowney.github.io/SurvivalAnalysisPython/">Survival Analysis in Python</a></p>
+  <p>Part of <a class="reference external" href="https://allendowney.github.io/SurvivalAnalysisPython/">Survival Analysis in Python</a></p>
 <p>Allen B. Downey</p>
 <p><a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/tutorial/01_light_bulb.ipynb">Run this notebook on Colab</a></p>
 <div class="section" id="survival-analysis">
-<h2>Survival Analysis<a class="headerlink" href="#survival-analysis" title="Permalink to this headline">¶</a></h2>
+<h1>Survival Analysis<a class="headerlink" href="#survival-analysis" title="Permalink to this headline">¶</a></h1>
 <p>This notebook presents four ways to represent a distribution: PMFs, CDFs, survival functions, and hazard functions.</p>
 <p>These representations are equivalent in the sense that if you are given any of them, you can compute the others.  So you might wonder why we need four ways to represent the same information.  There are two reasons:</p>
 <ol class="simple">
@@ -300,7 +289,7 @@
 </div>
 </div>
 <div class="section" id="light-bulb-lifetimes">
-<h2>Light bulb lifetimes<a class="headerlink" href="#light-bulb-lifetimes" title="Permalink to this headline">¶</a></h2>
+<h1>Light bulb lifetimes<a class="headerlink" href="#light-bulb-lifetimes" title="Permalink to this headline">¶</a></h1>
 <p>As a first example, I’ll use I’ll use data from an experiment that measures the lifetimes of 50 light bulbs.
 I downloaded the data from from <a class="reference external" href="https://gist.github.com/epogrebnyak/7933e16c0ad215742c4c104be4fbdeb1">this gist</a>, which includes this documentation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Dataset from:
@@ -418,7 +407,7 @@ If that fails, you should be able to <a class="reference external" href="https:/
 </div>
 </div>
 <div class="section" id="pmf">
-<h2>PMF<a class="headerlink" href="#pmf" title="Permalink to this headline">¶</a></h2>
+<h1>PMF<a class="headerlink" href="#pmf" title="Permalink to this headline">¶</a></h1>
 <p>This dataset is complete in the sense that the experiment ran until all light bulbs failed, so the lifetime for every bulb is known.
 So we can use the data to estimate the probability mass function (PMF) of lifetimes.</p>
 <p>To represent a PMF, I’ll use a Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> with the lifetimes (column <code class="docutils literal notranslate"><span class="pre">h</span></code>) as the index and the number of failures (column <code class="docutils literal notranslate"><span class="pre">f</span></code>) as the values.</p>
@@ -500,7 +489,7 @@ For example, we can compute the fraction of light bulbs that lasted 840 hours:</
 <p>This way of visualizing the data can be useful for validation, and it gives a sense of the location and spread of the data.  But it does not make the shape of the distrbution clear.  For that, the CDF is better.</p>
 </div>
 <div class="section" id="cdf">
-<h2>CDF<a class="headerlink" href="#cdf" title="Permalink to this headline">¶</a></h2>
+<h1>CDF<a class="headerlink" href="#cdf" title="Permalink to this headline">¶</a></h1>
 <p>The Cumulative Distribution Function (CDF) is the cumulative sum of the PMF.</p>
 <div class="cell tag_fill-in docutils container">
 <div class="cell_input docutils container">
@@ -566,7 +555,7 @@ For example, here is the fraction of light bulbs that expired at or before 840 h
 <p>Between 800 and 1800 hours, the CDF is roughly a straight line, which suggests that the distribution is uniform in this range.</p>
 </div>
 <div class="section" id="survival-function">
-<h2>Survival function<a class="headerlink" href="#survival-function" title="Permalink to this headline">¶</a></h2>
+<h1>Survival function<a class="headerlink" href="#survival-function" title="Permalink to this headline">¶</a></h1>
 <p>The survival function is the complement of the CDF; that is, for a given lifetime, <code class="docutils literal notranslate"><span class="pre">t</span></code>:</p>
 <ul class="simple">
 <li><p>The CDF is the fraction of the population less than or equal to <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p></li>
@@ -628,7 +617,7 @@ dtype: float64
 </ul>
 </div>
 <div class="section" id="hazard-function">
-<h2>Hazard function<a class="headerlink" href="#hazard-function" title="Permalink to this headline">¶</a></h2>
+<h1>Hazard function<a class="headerlink" href="#hazard-function" title="Permalink to this headline">¶</a></h1>
 <p>For a given lifetime <code class="docutils literal notranslate"><span class="pre">t</span></code>, the hazard function computes the “hazard rate” at <code class="docutils literal notranslate"><span class="pre">t</span></code>.  Using the vocabulary of the light bulb example, the hazard rate is the fraction of light bulbs that survive until <code class="docutils literal notranslate"><span class="pre">t</span></code> and then fail at <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
 <p>We can compute the hazard rate by computing these quantities:</p>
 <ul class="simple">
@@ -752,7 +741,7 @@ dtype: float64
 <p>So the last value of the hazard function is based on only one bulb; the second-to-last point is based on 2 bulbs; and so on.</p>
 </div>
 <div class="section" id="the-cumulative-hazard-function">
-<h2>The cumulative hazard function<a class="headerlink" href="#the-cumulative-hazard-function" title="Permalink to this headline">¶</a></h2>
+<h1>The cumulative hazard function<a class="headerlink" href="#the-cumulative-hazard-function" title="Permalink to this headline">¶</a></h1>
 <p>To get a better sense for the shape of the curve, we can plot the cumulative hazard function, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -776,7 +765,7 @@ dtype: float64
 <p>When you look at a cumulative hazard function, you should pay attention to the slope of the curve and ignore the values.</p>
 </div>
 <div class="section" id="resampling">
-<h2>Resampling<a class="headerlink" href="#resampling" title="Permalink to this headline">¶</a></h2>
+<h1>Resampling<a class="headerlink" href="#resampling" title="Permalink to this headline">¶</a></h1>
 <p>In the previous section, I suggested that we have to be careful not to overinterpret the right side of the hazard function, because it is based on a small number of data points.</p>
 <p>To see how precise the estimated hazard function is, we can use resampling.</p>
 <p>First I will use the Pmf of lifetimes to make a kernel density estimate (KDE) of the distribution.</p>
@@ -862,7 +851,7 @@ dtype: float64
 <p>After that, the variability of the curves is much wider, which means we don’t have enough data to characterize this part of the hazard function.</p>
 </div>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
 <p>We have seen four ways to represent a distribution of lifetimes:</p>
 <ul class="simple">
 <li><p>Probability mass function (PMF), which maps from each value in the distribution to its probability.</p></li>
@@ -873,7 +862,6 @@ dtype: float64
 <p>These representations are equivalent in the sense that they all contain the same information.  Given any of them, we can compute any of the others.</p>
 <p>In this notebook, we computed the <code class="docutils literal notranslate"><span class="pre">Pmf</span></code> directly from the data, then computed the <code class="docutils literal notranslate"><span class="pre">Cdf</span></code>, survival function, and hazard function, in that order.</p>
 <p>In the next notebook we will use these representations to deal with a case where we cannot compute the PMF directly from the data.</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -918,7 +906,7 @@ dtype: float64
         <a class="right-next" href="02_kaplan_meier.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Kaplan-Meier Estimation</p>
+                <p class="prevnext-title">Kaplan-Meier estimation</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
