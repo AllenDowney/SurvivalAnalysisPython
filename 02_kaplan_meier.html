@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kaplan-Meier estimation &#8212; Survival Analysis in Python</title>
+    <title>Kaplan-Meier Estimation &#8212; Survival Analysis in Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Survival Analysis" href="01_light_bulb.html" />
+    <link rel="prev" title="Representing distributions" href="01_light_bulb.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -90,12 +90,12 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_light_bulb.html">
-   Survival Analysis
+   Representing distributions
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Kaplan-Meier estimation
+   Kaplan-Meier Estimation
   </a>
  </li>
 </ul>
@@ -199,32 +199,32 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
    Kaplan-Meier estimation
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#plotting-lifelines">
    Plotting lifelines
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estimating-survival">
    Estimating survival
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estimating-the-hazard-function">
    Estimating the hazard function
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#working-backwards">
    Working backwards
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#lifelines">
    lifelines
   </a>
@@ -240,16 +240,24 @@
         
               <div>
                 
-  <p>Part of <a class="reference external" href="https://allendowney.github.io/SurvivalAnalysisPython/">Survival Analysis in Python</a></p>
-<p>Allen B. Downey</p>
-<p><a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="kaplan-meier-estimation">
+<h1>Kaplan-Meier Estimation<a class="headerlink" href="#kaplan-meier-estimation" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/tutorial/02_kaplan_meier.ipynb">Run this notebook on Colab</a></p>
-<div class="section" id="kaplan-meier-estimation">
-<h1>Kaplan-Meier estimation<a class="headerlink" href="#kaplan-meier-estimation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Kaplan-Meier estimation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>This notebook introduces Kaplan-Meier estimation, a way to estimate a hazard function when the dataset includes both complete and incomplete cases.
 To demonstrate, I’ll use a small set of hypothetical data.</p>
 <p>Suppose you are investigating the time it takes for dogs to get adopted from a shelter.  You visit a shelter every week for 10 weeks, and record the arrival time for each dog and the adoption time for each dog that was adopted.</p>
 <p>Here’s what the data might look like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -341,7 +349,7 @@ To demonstrate, I’ll use a small set of hypothetical data.</p>
 </ul>
 </div>
 <div class="section" id="plotting-lifelines">
-<h1>Plotting lifelines<a class="headerlink" href="#plotting-lifelines" title="Permalink to this headline">¶</a></h1>
+<h2>Plotting lifelines<a class="headerlink" href="#plotting-lifelines" title="Permalink to this headline">¶</a></h2>
 <p>The following function visualizes the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -378,7 +386,7 @@ To demonstrate, I’ll use a small set of hypothetical data.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_10_0.png" src="_images/02_kaplan_meier_10_0.png" />
+<img alt="_images/02_kaplan_meier_9_0.png" src="_images/02_kaplan_meier_9_0.png" />
 </div>
 </div>
 <p>Each line represents the time a dog spends at the shelter. Each dot represents an adoption.
@@ -389,7 +397,7 @@ We can see, for example:</p>
 </ul>
 </div>
 <div class="section" id="estimating-survival">
-<h1>Estimating survival<a class="headerlink" href="#estimating-survival" title="Permalink to this headline">¶</a></h1>
+<h2>Estimating survival<a class="headerlink" href="#estimating-survival" title="Permalink to this headline">¶</a></h2>
 <p>Now suppose we want to know the distribution of “survival time” from arrival to adoption.
 For the dogs that were adopted, we have all the data we need.<br />
 For the others, we have only partial information: if a dog hasn’t been adopted yet, we don’t know when it will be, but we can put a lower bound on it.</p>
@@ -421,7 +429,7 @@ Instead, we have to work backwards: we estimate the hazard function first, then 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_15_0.png" src="_images/02_kaplan_meier_15_0.png" />
+<img alt="_images/02_kaplan_meier_14_0.png" src="_images/02_kaplan_meier_14_0.png" />
 </div>
 </div>
 <p>Notice that the x-axis in this figure is duration, not time.</p>
@@ -439,7 +447,7 @@ Instead, we have to work backwards: we estimate the hazard function first, then 
 <p>And so on. Now let’s see how that works computationally.</p>
 </div>
 <div class="section" id="estimating-the-hazard-function">
-<h1>Estimating the hazard function<a class="headerlink" href="#estimating-the-hazard-function" title="Permalink to this headline">¶</a></h1>
+<h2>Estimating the hazard function<a class="headerlink" href="#estimating-the-hazard-function" title="Permalink to this headline">¶</a></h2>
 <p>First I’ll select the durations of the complete and ongoing cases.</p>
 <div class="cell tag_fill-in docutils container">
 <div class="cell_input docutils container">
@@ -850,7 +858,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="working-backwards">
-<h1>Working backwards<a class="headerlink" href="#working-backwards" title="Permalink to this headline">¶</a></h1>
+<h2>Working backwards<a class="headerlink" href="#working-backwards" title="Permalink to this headline">¶</a></h2>
 <p>Given the hazard function, we can work backwards to compute the survival curve.</p>
 <p>The hazard function is the probability of being adopted at each duration, so its complement is the probability of <em>not</em> being adopted.</p>
 <p>In order to survive past <code class="docutils literal notranslate"><span class="pre">t</span></code>, a dog has to <em>not</em> be adopted at all durations up to and including <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
@@ -1147,7 +1155,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="lifelines">
-<h1>lifelines<a class="headerlink" href="#lifelines" title="Permalink to this headline">¶</a></h1>
+<h2>lifelines<a class="headerlink" href="#lifelines" title="Permalink to this headline">¶</a></h2>
 <p>Kaplan-Meier estimation is available in a library called <code class="docutils literal notranslate"><span class="pre">lifelines</span></code>.
 First I’ll import it and create a <code class="docutils literal notranslate"><span class="pre">KaplanMeierFitter</span></code>.</p>
 <div class="cell docutils container">
@@ -1208,6 +1216,10 @@ Name: end, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/downey/anaconda3/envs/SurvivalAnalysisPython/lib/python3.7/site-packages/lifelines/fitters/kaplan_meier_fitter.py:262: FutureWarning: Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
+  self.confidence_interval_ = self._bounds(cumulative_sq_[:, None], alpha, ci_labels)
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;lifelines.KaplanMeierFitter:&quot;KM_estimate&quot;, fitted with 7 total observations, 3 right-censored observations&gt;
 </pre></div>
 </div>
@@ -1367,8 +1379,12 @@ Name: end, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_57_0.png" src="_images/02_kaplan_meier_57_0.png" />
+<img alt="_images/02_kaplan_meier_56_0.png" src="_images/02_kaplan_meier_56_0.png" />
 </div>
+</div>
+<p>Part of <a class="reference external" href="https://allendowney.github.io/SurvivalAnalysisPython/">Survival Analysis in Python</a></p>
+<p>Allen B. Downey</p>
+<p><a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a></p>
 </div>
 </div>
 
@@ -1406,7 +1422,7 @@ Name: end, dtype: int64
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Survival Analysis</p>
+                <p class="prevnext-title">Representing distributions</p>
             </div>
         </a>
     </div>
