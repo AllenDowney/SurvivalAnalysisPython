@@ -51,7 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Representing distributions" href="01_light_bulb.html" />
+    <link rel="prev" title="Survival Analysis" href="01_light_bulb.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -83,14 +83,14 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
-   Survival Analysis in Python
+   Outline
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="01_light_bulb.html">
-   Representing distributions
+   Survival Analysis
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -200,8 +200,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Kaplan-Meier estimation
+  <a class="reference internal nav-link" href="#dog-adoption-data">
+   Dog Adoption Data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -243,10 +243,10 @@
   <div class="tex2jax_ignore mathjax_ignore section" id="kaplan-meier-estimation">
 <h1>Kaplan-Meier Estimation<a class="headerlink" href="#kaplan-meier-estimation" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/tutorial/02_kaplan_meier.ipynb">Run this notebook on Colab</a></p>
-<div class="section" id="id1">
-<h2>Kaplan-Meier estimation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>This notebook introduces Kaplan-Meier estimation, a way to estimate a hazard function when the dataset includes both complete and incomplete cases.
 To demonstrate, I’ll use a small set of hypothetical data.</p>
+<div class="section" id="dog-adoption-data">
+<h2>Dog Adoption Data<a class="headerlink" href="#dog-adoption-data" title="Permalink to this headline">¶</a></h2>
 <p>Suppose you are investigating the time it takes for dogs to get adopted from a shelter.  You visit a shelter every week for 10 weeks, and record the arrival time for each dog and the adoption time for each dog that was adopted.</p>
 <p>Here’s what the data might look like.</p>
 <div class="cell docutils container">
@@ -386,7 +386,7 @@ To demonstrate, I’ll use a small set of hypothetical data.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_9_0.png" src="_images/02_kaplan_meier_9_0.png" />
+<img alt="_images/02_kaplan_meier_10_0.png" src="_images/02_kaplan_meier_10_0.png" />
 </div>
 </div>
 <p>Each line represents the time a dog spends at the shelter. Each dot represents an adoption.
@@ -429,7 +429,7 @@ Instead, we have to work backwards: we estimate the hazard function first, then 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_14_0.png" src="_images/02_kaplan_meier_14_0.png" />
+<img alt="_images/02_kaplan_meier_15_0.png" src="_images/02_kaplan_meier_15_0.png" />
 </div>
 </div>
 <p>Notice that the x-axis in this figure is duration, not time.</p>
@@ -1379,7 +1379,7 @@ Name: end, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_56_0.png" src="_images/02_kaplan_meier_56_0.png" />
+<img alt="_images/02_kaplan_meier_57_0.png" src="_images/02_kaplan_meier_57_0.png" />
 </div>
 </div>
 <p>Part of <a class="reference external" href="https://allendowney.github.io/SurvivalAnalysisPython/">Survival Analysis in Python</a></p>
@@ -1422,7 +1422,7 @@ Name: end, dtype: int64
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Representing distributions</p>
+                <p class="prevnext-title">Survival Analysis</p>
             </div>
         </a>
     </div>

@@ -1,4 +1,4 @@
-# Survival Analysis in Python
+# Outline
 
 This tutorial is an introduction to survival analysis using
 computation rather than math.

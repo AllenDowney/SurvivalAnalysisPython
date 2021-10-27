@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Representing distributions &#8212; Survival Analysis in Python</title>
+    <title>Survival Analysis &#8212; Survival Analysis in Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Kaplan-Meier Estimation" href="02_kaplan_meier.html" />
-    <link rel="prev" title="Survival Analysis in Python" href="index.html" />
+    <link rel="prev" title="Outline" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -84,14 +84,14 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
-   Survival Analysis in Python
+   Outline
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Representing distributions
+   Survival Analysis
   </a>
  </li>
  <li class="toctree-l1">
@@ -201,8 +201,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#survival-analysis">
-   Survival Analysis
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -256,11 +256,11 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="representing-distributions">
-<h1>Representing distributions<a class="headerlink" href="#representing-distributions" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="survival-analysis">
+<h1>Survival Analysis<a class="headerlink" href="#survival-analysis" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/tutorial/01_light_bulb.ipynb">Run this notebook on Colab</a></p>
-<div class="section" id="survival-analysis">
-<h2>Survival Analysis<a class="headerlink" href="#survival-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This notebook presents four ways to represent a distribution: PMFs, CDFs, survival functions, and hazard functions.</p>
 <p>These representations are equivalent in the sense that if you are given any of them, you can compute the others.  So you might wonder why we need four ways to represent the same information.  There are two reasons:</p>
 <ol class="simple">
@@ -268,24 +268,6 @@
 <li><p>In some cases we can use a sample to compute a PMF, and use the PMF to compute the other representations.  In other cases it is easier to estimate the hazard function and use it to compute the others.</p></li>
 </ol>
 <p>In this notebook I will demonstrate the first process, starting with the PMF.  In the next notebook we’ll see the second process, starting with the hazard function.</p>
-<p>The following is a function I use to decorate the axes of a figure.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decorate</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Decorate the current axes.</span>
-<span class="sd">    Call decorate with keyword arguments like</span>
-<span class="sd">    decorate(title=&#39;Title&#39;,</span>
-<span class="sd">             xlabel=&#39;x&#39;,</span>
-<span class="sd">             ylabel=&#39;y&#39;)</span>
-<span class="sd">    The keyword arguments can be any of the axis properties</span>
-<span class="sd">    https://matplotlib.org/api/axes_api.html</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="light-bulb-lifetimes">
 <h2>Light bulb lifetimes<a class="headerlink" href="#light-bulb-lifetimes" title="Permalink to this headline">¶</a></h2>
@@ -508,6 +490,23 @@ For example, we can compute the fraction of light bulbs that lasted 840 hours:</
 <p>Here’s what the PMF looks like.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decorate</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Decorate the current axes.</span>
+<span class="sd">    Call decorate with keyword arguments like</span>
+<span class="sd">    decorate(title=&#39;Title&#39;,</span>
+<span class="sd">             xlabel=&#39;x&#39;,</span>
+<span class="sd">             ylabel=&#39;y&#39;)</span>
+<span class="sd">    The keyword arguments can be any of the axis properties</span>
+<span class="sd">    https://matplotlib.org/api/axes_api.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 <span class="n">decorate</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Lifetime (hours)&#39;</span><span class="p">,</span> 
          <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;PMF&#39;</span><span class="p">,</span> 
@@ -516,7 +515,7 @@ For example, we can compute the fraction of light bulbs that lasted 840 hours:</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/01_light_bulb_20_0.png" src="_images/01_light_bulb_20_0.png" />
+<img alt="_images/01_light_bulb_19_0.png" src="_images/01_light_bulb_19_0.png" />
 </div>
 </div>
 <p>This way of visualizing the data can be useful for validation, and it gives a sense of the location and spread of the data.  But it does not make the shape of the distrbution clear.  For that, the CDF is better.</p>
@@ -581,7 +580,7 @@ For example, here is the fraction of light bulbs that expired at or before 840 h
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/01_light_bulb_29_0.png" src="_images/01_light_bulb_29_0.png" />
+<img alt="_images/01_light_bulb_28_0.png" src="_images/01_light_bulb_28_0.png" />
 </div>
 </div>
 <p>In my opinion, the CDF is often the best way to visualize the distribution of a sample.</p>
@@ -639,7 +638,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/01_light_bulb_36_0.png" src="_images/01_light_bulb_36_0.png" />
+<img alt="_images/01_light_bulb_35_0.png" src="_images/01_light_bulb_35_0.png" />
 </div>
 </div>
 <p>It might not be obvious why the survival function is useful.  Given the CDF and a little arithmetic, we can answer all of the same questions.</p>
@@ -690,7 +689,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/01_light_bulb_41_0.png" src="_images/01_light_bulb_41_0.png" />
+<img alt="_images/01_light_bulb_40_0.png" src="_images/01_light_bulb_40_0.png" />
 </div>
 </div>
 <p>With this kind of data, plotting the hazard function does not provide a clear picture of what’s happening.  There are two problems:</p>
@@ -787,7 +786,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/01_light_bulb_46_0.png" src="_images/01_light_bulb_46_0.png" />
+<img alt="_images/01_light_bulb_45_0.png" src="_images/01_light_bulb_45_0.png" />
 </div>
 </div>
 <p>The slope of the cumulative hazard function is proportional to the hazard rate, so we can use this curve to see when the hazard rate is low or high, and when it is increasing or decreasing.</p>
@@ -855,7 +854,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/01_light_bulb_56_0.png" src="_images/01_light_bulb_56_0.png" />
+<img alt="_images/01_light_bulb_55_0.png" src="_images/01_light_bulb_55_0.png" />
 </div>
 </div>
 <p>By plotting the resampled survival functions on top of each other, we can get a sense of how much the results vary due to random sampling.</p>
@@ -876,7 +875,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/01_light_bulb_58_0.png" src="_images/01_light_bulb_58_0.png" />
+<img alt="_images/01_light_bulb_57_0.png" src="_images/01_light_bulb_57_0.png" />
 </div>
 </div>
 <p>This plot gives us a sense of which parts of the cumulative hazard function are reliable and which are not.</p>
@@ -935,7 +934,7 @@ dtype: float64
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Survival Analysis in Python</p>
+                <p class="prevnext-title">Outline</p>
             </div>
         </a>
     </div>
