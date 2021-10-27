@@ -5,9 +5,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Political Alignment Case Study &#8212; Political Alignment Case Study</title>
+    <title>Survival Analysis in Python &#8212; Survival Analysis in Python</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,19 +31,19 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -54,15 +51,15 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Cleaning and Validation" href="01_clean.html" />
-
+    <link rel="next" title="Survival Analysis in Python" href="01_light_bulb.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -71,47 +68,39 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="#">
-  
-  
-  <h1 class="site-logo" id="site-title">Political Alignment Case Study</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="#">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Survival Analysis in Python</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
- <li class="toctree-l1 current active">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   Political Alignment Case Study
+   Survival Analysis in Python
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01_clean.html">
-   Cleaning and Validation
+  <a class="reference internal" href="01_light_bulb.html">
+   Survival Analysis in Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02_polviews.html">
-   Exploring Distributions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_outlook.html">
-   Political Alignment and Outlook
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_worldview.html">
-   Political Alignment and Other Views
+  <a class="reference internal" href="02_kaplan_meier.html">
+   Kaplan-Meier Estimation
   </a>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -166,7 +155,7 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/AllenDowney/PoliticalAlignmentCaseStudy"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/AllenDowney/SurvivalAnalysisPython"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
@@ -174,12 +163,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -188,12 +177,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#videos-and-slides">
    Videos and Slides
@@ -214,22 +202,11 @@
      Notebook 2
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notebook-3">
-     Notebook 3
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#notebook-4">
-     Notebook 4
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -238,62 +215,41 @@
         
               <div>
                 
-  <div class="section" id="political-alignment-case-study">
-<h1>Political Alignment Case Study<a class="headerlink" href="#political-alignment-case-study" title="Permalink to this headline">¶</a></h1>
-<p>This data science case study explores the relationship between political alignment (conservative, moderate, or liberal) and other attitudes and beliefs.  It is meant primarily for teaching and learning about data science, but we might do some research along the way.</p>
-<p>If you are working through <a class="reference external" href="https://allendowney.github.io/ElementsOfDataScience/">the <em>Elements of Data Science</em> curriculum</a>, you should be ready to start this case study when you have completed Notebook 6, which covers basic Pandas.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="survival-analysis-in-python">
+<h1>Survival Analysis in Python<a class="headerlink" href="#survival-analysis-in-python" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial is an introduction to survival analysis using
+computation rather than math.</p>
 <p>This material is a work in progress, so your feedback is welcome.  The best way to provide that feedback is to <a class="reference external" href="https://github.com/AllenDowney/PoliticalAlignmentCaseStudy/issues">click here and create an issue in this GitHub repository</a>.</p>
 <div class="section" id="videos-and-slides">
 <h2>Videos and Slides<a class="headerlink" href="#videos-and-slides" title="Permalink to this headline">¶</a></h2>
-<p>I presented this case study for <a class="reference external" href="https://global.pydata.org/talks/363">PyData Global 2020</a>.</p>
-<p>Here are the <a class="reference external" href="https://docs.google.com/presentation/d/e/2PACX-1vSqifcdVGQmMoLDNlmbnugZ58jieItA_weGEF9oRsQCAa6iICLmehevGRzINYVv0tCGqcSTvuIQOSJo/pub">slides I presented</a></p>
-<p>And here are the videos:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=6Bg7v5EGiWY">Part 1</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=y8A3bKjpJe4">Part 2</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=vfuXyXXSNtM">Part 3</a></p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=XFPi-AUiJSo">Part 4</a></p></li>
-</ul>
+<p>I presented this tutorial for <a class="reference external" href="https://pydata.org/global2021/schedule/presentation/39/computational-survival-analysis/">PyData Global 2021</a>.</p>
+<p>Here are the <a class="reference external" href="https://docs.google.com/presentation/d/e/2PACX-1vQfYxM-Fy8TScRbUyYSWqeyNtPy8teV_d6tieSVdIK5qRHYbuTcx9CKVRGbZzjiaJ2x5NAgy1Jddb4_/pub">slides I presented</a></p>
+<p>I’ll post the video when it is available.</p>
 </div>
 <div class="section" id="the-notebooks">
 <h2>The notebooks<a class="headerlink" href="#the-notebooks" title="Permalink to this headline">¶</a></h2>
 <p>For each of the notebooks below, you have two options: if you view the notebook on NBViewer, you can read it, but you can’t run the code.  If you run the notebook on Colab, you’ll be able to run the code, do the exercises, and save your modified version of the notebook in a Google Drive (if you have one).</p>
 <div class="section" id="notebook-1">
 <h3>Notebook 1<a class="headerlink" href="#notebook-1" title="Permalink to this headline">¶</a></h3>
-<p><strong>Cleaning and validation</strong>: The first notebook loads data from the General Social Survey (GSS) and walks through the process of cleaning and validating the data.  At the end, you can help me by choosing a random variable, checking the values against the codebook, and reporting your results.</p>
+<p><strong>Light Bulbs</strong>: The first notebook introduces PMFs, CDFs, survival functions and hazard function, using light bulb lifetimes as an example.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/AllenDowney/PoliticalAlignmentCaseStudy/blob/master/01_clean.ipynb">Click here to read Notebook 1 on NBViewer</a></p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/PoliticalAlignmentCaseStudy/blob/master/01_clean.ipynb">Click here to run Notebook 1 on Colab</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/AllenDowney/SurvivalAnalysisPython/blob/master/01_light_bulb.ipynb">Click here to read Notebook 1 on NBViewer</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/01_light_bulb.ipynb">Click here to run Notebook 1 on Colab</a></p></li>
 </ul>
 </div>
 <div class="section" id="notebook-2">
 <h3>Notebook 2<a class="headerlink" href="#notebook-2" title="Permalink to this headline">¶</a></h3>
-<p><strong>Exploration</strong>: This notebook uses the tools of exploratory data analysis to look at survey responses about political alignment.  It uses PMFs to display distributions, time series to represent changes over time, and cross tabulation to look at changes in distribution over time.  It also introduces local regression as a way to plot a smooth line through noisy data.</p>
+<p><strong>Kaplan-Meier Estimation</strong>: The second notebook introduces
+Kaplan-Meier estimation, using a dog shelter as an example.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/AllenDowney/PoliticalAlignmentCaseStudy/blob/master/02_polviews.ipynb">Click here to read Notebook 2 on NBViewer</a></p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/PoliticalAlignmentCaseStudy/blob/master/02_polviews.ipynb">Click here to run Notebook 2 on Colab</a></p></li>
+<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/AllenDowney/SurvivalAnalysisPython/blob/master/02_kaplan_meier.ipynb">Click here to read Notebook 2 on NBViewer</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/02_kaplan_meier.ipynb">Click here to run Notebook 2 on Colab</a></p></li>
 </ul>
-</div>
-<div class="section" id="notebook-3">
-<h3>Notebook 3<a class="headerlink" href="#notebook-3" title="Permalink to this headline">¶</a></h3>
-<p><strong>Political alignment and outlook</strong>: This notebook explores the relationship between political alignment and three survey questions related to “outlook”.  It uses a pivot table to compute the mean of the response variable grouped by political alignment and time.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/AllenDowney/PoliticalAlignmentCaseStudy/blob/master/03_outlook.ipynb">Click here to read Notebook 3 on NBViewer</a></p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/PoliticalAlignmentCaseStudy/blob/master/03_outlook.ipynb">Click here to run Notebook 3 on Colab</a></p></li>
-</ul>
-</div>
-<div class="section" id="notebook-4">
-<h3>Notebook 4<a class="headerlink" href="#notebook-4" title="Permalink to this headline">¶</a></h3>
-<p><strong>Political alignment and other beliefs</strong>: This notebook explores the relationship between political alignment and other attitudes and beliefs.  It is a template for a do-it-yourself, choose-your-own-adventure mini-project, where you have the chance to explore a variable in the GSS dataset and report the results.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://nbviewer.jupyter.org/github/AllenDowney/PoliticalAlignmentCaseStudy/blob/master/04_worldview.ipynb">Click here to read Notebook 4 on NBViewer</a></p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/github/AllenDowney/PoliticalAlignmentCaseStudy/blob/master/04_worldview.ipynb">Click here to run Notebook 4 on Colab</a></p></li>
-</ul>
-<p>Copyright 2020 Allen B. Downey</p>
+<p>Copyright 2021 Allen B. Downey</p>
 <p>License: <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a></p>
+</div>
+</div>
 <div class="toctree-wrapper compound">
-</div>
-</div>
 </div>
 </div>
 
@@ -320,21 +276,33 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="01_clean.html" title="next page">Cleaning and Validation</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+     <div id="next">
+        <a class="right-next" href="01_light_bulb.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Survival Analysis in Python</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
           By Allen B. Downey<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -343,11 +311,9 @@
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
