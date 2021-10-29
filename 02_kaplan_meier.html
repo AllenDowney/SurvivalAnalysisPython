@@ -270,76 +270,6 @@ To demonstrate, I’ll use a small set of hypothetical data.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>start</th>
-      <th>end</th>
-      <th>status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>5</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>6</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2</td>
-      <td>9</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>9</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>8</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>9</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>This <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> contains one row for each dog and three columns:</p>
 <ul class="simple">
@@ -385,9 +315,6 @@ To demonstrate, I’ll use a small set of hypothetical data.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_10_0.png" src="_images/02_kaplan_meier_10_0.png" />
-</div>
 </div>
 <p>Each line represents the time a dog spends at the shelter. Each dot represents an adoption.
 We can see, for example:</p>
@@ -428,9 +355,6 @@ Instead, we have to work backwards: we estimate the hazard function first, then 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_15_0.png" src="_images/02_kaplan_meier_15_0.png" />
-</div>
 </div>
 <p>Notice that the x-axis in this figure is duration, not time.</p>
 <p>The second key idea is that we can estimate the hazard function by considering:</p>
@@ -456,28 +380,11 @@ Instead, we have to work backwards: we estimate the hazard function first, then 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    5
-1    1
-2    4
-5    2
-dtype: int64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_fill-in docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ongoing</span> <span class="o">=</span> <span class="n">duration</span><span class="p">[</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">ongoing</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    7
-4    5
-6    2
-dtype: int64
 </pre></div>
 </div>
 </div>
@@ -498,28 +405,11 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    1
-2    1
-4    1
-5    1
-dtype: int64
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_fill-in docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmf_ongoing</span> <span class="o">=</span> <span class="n">make_pmf</span><span class="p">(</span><span class="n">ongoing</span><span class="p">)</span>
 <span class="n">pmf_ongoing</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2    1
-5    1
-7    1
-dtype: int64
 </pre></div>
 </div>
 </div>
@@ -547,58 +437,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pmf_complete</th>
-      <th>pmf_ongoing</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>This table indicates that one dog was adopted at 1 week, another dog was adopted at 2 weeks, and a third dog was observed, unadopted, having been in the shelter for 2 weeks.</p>
 <p>We can use the PMFs to compute survival functions for the two groups:</p>
@@ -619,70 +457,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pmf_complete</th>
-      <th>pmf_ongoing</th>
-      <th>s_complete</th>
-      <th>s_ongoing</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>The first row of this table indicates that 3 of the adopted dogs and 3 of the unadopted dogs were in the shelter for more than 1 week.</p>
 <p>We can use this table to compute the number of dogs “at risk” at each duration, <code class="docutils literal notranslate"><span class="pre">t</span></code>, which is the sum of:</p>
@@ -700,76 +474,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pmf_complete</th>
-      <th>pmf_ongoing</th>
-      <th>s_complete</th>
-      <th>s_ongoing</th>
-      <th>at_risk</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>6.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Finally, the hazard function is the ratio of <code class="docutils literal notranslate"><span class="pre">pmf_complete</span></code> and <code class="docutils literal notranslate"><span class="pre">at_risk</span></code>:</p>
 <div class="cell tag_fill-in docutils container">
@@ -779,82 +483,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pmf_complete</th>
-      <th>pmf_ongoing</th>
-      <th>s_complete</th>
-      <th>s_ongoing</th>
-      <th>at_risk</th>
-      <th>hazard</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>7.0</td>
-      <td>0.142857</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>6.0</td>
-      <td>0.166667</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>4.0</td>
-      <td>0.250000</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>0.333333</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 <div class="section" id="working-backwards">
@@ -870,88 +498,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pmf_complete</th>
-      <th>pmf_ongoing</th>
-      <th>s_complete</th>
-      <th>s_ongoing</th>
-      <th>at_risk</th>
-      <th>hazard</th>
-      <th>surv</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>7.0</td>
-      <td>0.142857</td>
-      <td>0.857143</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>6.0</td>
-      <td>0.166667</td>
-      <td>0.714286</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>4.0</td>
-      <td>0.250000</td>
-      <td>0.535714</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>0.333333</td>
-      <td>0.357143</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000000</td>
-      <td>0.357143</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>The CDF is the complement of the survival function.</p>
 <div class="cell tag_fill-in docutils container">
@@ -961,94 +507,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pmf_complete</th>
-      <th>pmf_ongoing</th>
-      <th>s_complete</th>
-      <th>s_ongoing</th>
-      <th>at_risk</th>
-      <th>hazard</th>
-      <th>surv</th>
-      <th>cdf</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>7.0</td>
-      <td>0.142857</td>
-      <td>0.857143</td>
-      <td>0.142857</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>6.0</td>
-      <td>0.166667</td>
-      <td>0.714286</td>
-      <td>0.285714</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>4.0</td>
-      <td>0.250000</td>
-      <td>0.535714</td>
-      <td>0.464286</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>0.333333</td>
-      <td>0.357143</td>
-      <td>0.642857</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000000</td>
-      <td>0.357143</td>
-      <td>0.642857</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>And the PMF is the difference between adjacent elements of the CDF.</p>
 <div class="cell tag_fill-in docutils container">
@@ -1058,100 +516,6 @@ dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>pmf_complete</th>
-      <th>pmf_ongoing</th>
-      <th>s_complete</th>
-      <th>s_ongoing</th>
-      <th>at_risk</th>
-      <th>hazard</th>
-      <th>surv</th>
-      <th>cdf</th>
-      <th>pmf</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>3.0</td>
-      <td>3.0</td>
-      <td>7.0</td>
-      <td>0.142857</td>
-      <td>0.857143</td>
-      <td>0.142857</td>
-      <td>0.142857</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>2.0</td>
-      <td>6.0</td>
-      <td>0.166667</td>
-      <td>0.714286</td>
-      <td>0.285714</td>
-      <td>0.142857</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>4.0</td>
-      <td>0.250000</td>
-      <td>0.535714</td>
-      <td>0.464286</td>
-      <td>0.178571</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>3.0</td>
-      <td>0.333333</td>
-      <td>0.357143</td>
-      <td>0.642857</td>
-      <td>0.178571</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000000</td>
-      <td>0.357143</td>
-      <td>0.642857</td>
-      <td>0.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 <div class="section" id="lifelines">
@@ -1187,18 +551,6 @@ First I’ll import it and create a <code class="docutils literal notranslate"><
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    5
-1    1
-2    4
-3    7
-4    5
-5    2
-6    2
-Name: end, dtype: int64
-</pre></div>
-</div>
-</div>
 </div>
 <p>And an event flag that indicates whether a case is complete.</p>
 <div class="cell tag_fill-in docutils container">
@@ -1215,15 +567,6 @@ Name: end, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/downey/anaconda3/envs/SurvivalAnalysisPython/lib/python3.7/site-packages/lifelines/fitters/kaplan_meier_fitter.py:262: FutureWarning: Support for multi-dimensional indexing (e.g. `obj[:, None]`) is deprecated and will be removed in a future version.  Convert to a numpy array before indexing instead.
-  self.confidence_interval_ = self._bounds(cumulative_sq_[:, None], alpha, ci_labels)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;lifelines.KaplanMeierFitter:&quot;KM_estimate&quot;, fitted with 7 total observations, 3 right-censored observations&gt;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Now the <code class="docutils literal notranslate"><span class="pre">Fitter</span></code> object contains the estimated survival function.</p>
 <div class="cell tag_fill-in docutils container">
@@ -1232,70 +575,11 @@ Name: end, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>KM_estimate</th>
-    </tr>
-    <tr>
-      <th>timeline</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0.0</th>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>1.0</th>
-      <td>0.857143</td>
-    </tr>
-    <tr>
-      <th>2.0</th>
-      <td>0.714286</td>
-    </tr>
-    <tr>
-      <th>4.0</th>
-      <td>0.535714</td>
-    </tr>
-    <tr>
-      <th>5.0</th>
-      <td>0.357143</td>
-    </tr>
-    <tr>
-      <th>7.0</th>
-      <td>0.357143</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">timelines</span></code> includes an element at <code class="docutils literal notranslate"><span class="pre">t=0</span></code>, but other than that it is identical to what we computed (except for floating-point error).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">kmf</span><span class="o">.</span><span class="n">survival_function_</span><span class="p">[</span><span class="s1">&#39;KM_estimate&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;surv&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6653345369377348e-16
 </pre></div>
 </div>
 </div>
@@ -1308,63 +592,6 @@ Name: end, dtype: int64
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>KM_estimate_lower_0.95</th>
-      <th>KM_estimate_upper_0.95</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0.0</th>
-      <td>1.000000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>1.0</th>
-      <td>0.334054</td>
-      <td>0.978561</td>
-    </tr>
-    <tr>
-      <th>2.0</th>
-      <td>0.258154</td>
-      <td>0.919797</td>
-    </tr>
-    <tr>
-      <th>4.0</th>
-      <td>0.131988</td>
-      <td>0.824997</td>
-    </tr>
-    <tr>
-      <th>5.0</th>
-      <td>0.051977</td>
-      <td>0.698713</td>
-    </tr>
-    <tr>
-      <th>7.0</th>
-      <td>0.051977</td>
-      <td>0.698713</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>With such a small dataset, the CI is pretty wide.</p>
 <div class="cell docutils container">
@@ -1377,9 +604,6 @@ Name: end, dtype: int64
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Survival function&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_57_0.png" src="_images/02_kaplan_meier_57_0.png" />
 </div>
 </div>
 <p>Part of <a class="reference external" href="https://allendowney.github.io/SurvivalAnalysisPython/">Survival Analysis in Python</a></p>
