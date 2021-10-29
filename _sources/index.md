@@ -3,7 +3,7 @@
 This tutorial is an introduction to survival analysis using
 computation rather than math.
 
-This material is a work in progress, so your feedback is welcome.  The best way to provide that feedback is to [click here and create an issue in this GitHub repository](https://github.com/AllenDowney/PoliticalAlignmentCaseStudy/issues).
+This material is a work in progress, so your feedback is welcome.  The best way to provide that feedback is to [click here and create an issue in this GitHub repository](https://github.com/AllenDowney/SurvivalAnalysisPython/issues).
 
 
 ## Videos and Slides
