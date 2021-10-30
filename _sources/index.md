@@ -12,7 +12,7 @@ I presented this tutorial for [PyData Global 2021](https://pydata.org/global2021
 
 Here are the [slides I presented](https://docs.google.com/presentation/d/e/2PACX-1vQfYxM-Fy8TScRbUyYSWqeyNtPy8teV_d6tieSVdIK5qRHYbuTcx9CKVRGbZzjiaJ2x5NAgy1Jddb4_/pub)
 
-I'll post the video when it is available.
+And [Here is the video](https://zoom.us/rec/share/i_TIGU29hOeE07xjCM0DuJuOzFxjp-7XhxTLKXDFU1sgdLt2PJeveRnHWeU_Sluj.U6V6dlafHxoOyINw).
 
 
 ## The notebooks
