@@ -25,6 +25,8 @@ For each of the notebooks below, you have two options: if you view the notebook 
 
 * [Click here to run Notebook 1 on Colab](https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/01_light_bulb.ipynb)
 
+* [Click here to run Notebook 1 with solutions on Colab](https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/soln/01_light_bulb.ipynb)
+
 * [Click here to read the complete Notebook 1 on NBViewer](https://nbviewer.jupyter.org/github/AllenDowney/SurvivalAnalysisPython/blob/master/soln/01_light_bulb.ipynb)
 
 
@@ -34,6 +36,8 @@ For each of the notebooks below, you have two options: if you view the notebook 
 Kaplan-Meier estimation, using a dog shelter as an example.
 
 * [Click here to run Notebook 2 on Colab](https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/02_kaplan_meier.ipynb)
+
+* [Click here to run Notebook 2 with solutions on Colab](https://colab.research.google.com/github/AllenDowney/SurvivalAnalysisPython/blob/master/soln/02_kaplan_meier.ipynb)
 
 * [Click here to read the complete Notebook 2 on NBViewer](https://nbviewer.jupyter.org/github/AllenDowney/SurvivalAnalysisPython/blob/master/soln/02_kaplan_meier.ipynb)
 

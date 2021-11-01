@@ -455,7 +455,7 @@ Instead, we have to work backwards: we estimate the hazard function first, then 
 <h2>Computing “at risk”<a class="headerlink" href="#computing-at-risk" title="Permalink to this headline">¶</a></h2>
 <p>For each observed duration, we would like to compute the number of dogs that were at risk.
 Here are the unique durations, in order:</p>
-<div class="cell docutils container">
+<div class="cell tag_fill-in docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">duration</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">ts</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
@@ -470,7 +470,7 @@ Here are the unique durations, in order:</p>
 </div>
 </div>
 <p>To compute the number of dogs at risk, we can loop through <code class="docutils literal notranslate"><span class="pre">ts</span></code> and count the number of dogs where <code class="docutils literal notranslate"><span class="pre">t</span></code> is less than or equal to <code class="docutils literal notranslate"><span class="pre">end</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell tag_fill-in docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">at_risk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">ts</span><span class="p">)</span>
 
@@ -527,7 +527,7 @@ Now we can use comparison operators to compare all values of <code class="docuti
 <div class="section" id="estimating-the-hazard-function">
 <h2>Estimating the hazard function<a class="headerlink" href="#estimating-the-hazard-function" title="Permalink to this headline">¶</a></h2>
 <p>Now, to compute the hazard function, we need to know the number of dogs adopted at each value of <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell tag_fill-in docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adopted</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">ts</span><span class="p">)</span>
 
@@ -653,12 +653,10 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<p>This table indicates that one dog was adopted at 1 week, another dog was adopted at 2 weeks, and a third dog was observed, unadopted, having been in the shelter for 2 weeks.</p>
-<p>We can use the PMFs to compute survival functions for the two groups:</p>
-<p>Finally, the hazard function is the ratio of <code class="docutils literal notranslate"><span class="pre">pmf_complete</span></code> and <code class="docutils literal notranslate"><span class="pre">at_risk</span></code>:</p>
+<p>Finally, the hazard function is the ratio of <code class="docutils literal notranslate"><span class="pre">adopted</span></code> and <code class="docutils literal notranslate"><span class="pre">at_risk</span></code>:</p>
 <div class="cell tag_fill-in docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hazard&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pmf_complete&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;at_risk&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hazard&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;adopted&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;at_risk&#39;</span><span class="p">]</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -682,7 +680,7 @@ dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>pmf_complete</th>
+      <th>adopted</th>
       <th>at_risk</th>
       <th>hazard</th>
     </tr>
@@ -690,31 +688,31 @@ dtype: int64
   <tbody>
     <tr>
       <th>1</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>7</td>
       <td>0.142857</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>6</td>
       <td>0.166667</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>4</td>
       <td>0.250000</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>3</td>
       <td>0.333333</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.0</td>
+      <td>0</td>
       <td>1</td>
       <td>0.000000</td>
     </tr>
@@ -755,7 +753,7 @@ dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>pmf_complete</th>
+      <th>adopted</th>
       <th>at_risk</th>
       <th>hazard</th>
       <th>surv</th>
@@ -764,35 +762,35 @@ dtype: int64
   <tbody>
     <tr>
       <th>1</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>7</td>
       <td>0.142857</td>
       <td>0.857143</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>6</td>
       <td>0.166667</td>
       <td>0.714286</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>4</td>
       <td>0.250000</td>
       <td>0.535714</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>3</td>
       <td>0.333333</td>
       <td>0.357143</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>0.0</td>
+      <td>0</td>
       <td>1</td>
       <td>0.000000</td>
       <td>0.357143</td>
@@ -828,7 +826,7 @@ dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>pmf_complete</th>
+      <th>adopted</th>
       <th>at_risk</th>
       <th>hazard</th>
       <th>surv</th>
@@ -838,7 +836,7 @@ dtype: int64
   <tbody>
     <tr>
       <th>1</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>7</td>
       <td>0.142857</td>
       <td>0.857143</td>
@@ -846,7 +844,7 @@ dtype: int64
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>6</td>
       <td>0.166667</td>
       <td>0.714286</td>
@@ -854,7 +852,7 @@ dtype: int64
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>4</td>
       <td>0.250000</td>
       <td>0.535714</td>
@@ -862,7 +860,7 @@ dtype: int64
     </tr>
     <tr>
       <th>5</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>3</td>
       <td>0.333333</td>
       <td>0.357143</td>
@@ -870,7 +868,7 @@ dtype: int64
     </tr>
     <tr>
       <th>7</th>
-      <td>0.0</td>
+      <td>0</td>
       <td>1</td>
       <td>0.000000</td>
       <td>0.357143</td>
@@ -907,7 +905,7 @@ dtype: int64
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>pmf_complete</th>
+      <th>adopted</th>
       <th>at_risk</th>
       <th>hazard</th>
       <th>surv</th>
@@ -918,7 +916,7 @@ dtype: int64
   <tbody>
     <tr>
       <th>1</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>7</td>
       <td>0.142857</td>
       <td>0.857143</td>
@@ -927,7 +925,7 @@ dtype: int64
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>6</td>
       <td>0.166667</td>
       <td>0.714286</td>
@@ -936,7 +934,7 @@ dtype: int64
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>4</td>
       <td>0.250000</td>
       <td>0.535714</td>
@@ -945,7 +943,7 @@ dtype: int64
     </tr>
     <tr>
       <th>5</th>
-      <td>1.0</td>
+      <td>1</td>
       <td>3</td>
       <td>0.333333</td>
       <td>0.357143</td>
@@ -954,7 +952,7 @@ dtype: int64
     </tr>
     <tr>
       <th>7</th>
-      <td>0.0</td>
+      <td>0</td>
       <td>1</td>
       <td>0.000000</td>
       <td>0.357143</td>
@@ -983,7 +981,7 @@ First I’ll import it and create a <code class="docutils literal notranslate"><
 </div>
 </div>
 </div>
-<div class="cell tag_fill-in docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifelines</span> <span class="kn">import</span> <span class="n">KaplanMeierFitter</span>
 <span class="n">kmf</span> <span class="o">=</span> <span class="n">KaplanMeierFitter</span><span class="p">()</span>
@@ -992,7 +990,7 @@ First I’ll import it and create a <code class="docutils literal notranslate"><
 </div>
 </div>
 <p>Now we need two sequences, the durations, including complete and ongoing cases.</p>
-<div class="cell tag_fill-in docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">shifted</span><span class="p">[</span><span class="s1">&#39;end&#39;</span><span class="p">]</span>
 <span class="n">T</span>
@@ -1013,7 +1011,7 @@ Name: end, dtype: int64
 </div>
 </div>
 <p>And an event flag that indicates whether a case is complete.</p>
-<div class="cell tag_fill-in docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">shifted</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
 </pre></div>
@@ -1021,7 +1019,7 @@ Name: end, dtype: int64
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">fit</span></code> method does the Kaplan-Meier estimation.</p>
-<div class="cell tag_fill-in docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span>
 </pre></div>
@@ -1038,7 +1036,7 @@ Name: end, dtype: int64
 </div>
 </div>
 <p>Now the <code class="docutils literal notranslate"><span class="pre">Fitter</span></code> object contains the estimated survival function.</p>
-<div class="cell tag_fill-in docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmf</span><span class="o">.</span><span class="n">survival_function_</span>
 </pre></div>
@@ -1113,7 +1111,7 @@ Name: end, dtype: int64
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">lifelines</span></code> also computes a confidence interval for the survival function.</p>
-<div class="cell tag_fill-in docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ci</span> <span class="o">=</span> <span class="n">kmf</span><span class="o">.</span><span class="n">confidence_interval_survival_function_</span>
 <span class="n">ci</span>
@@ -1191,7 +1189,7 @@ Name: end, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02_kaplan_meier_59_0.png" src="_images/02_kaplan_meier_59_0.png" />
+<img alt="_images/02_kaplan_meier_58_0.png" src="_images/02_kaplan_meier_58_0.png" />
 </div>
 </div>
 <p>Part of <a class="reference external" href="https://allendowney.github.io/SurvivalAnalysisPython/">Survival Analysis in Python</a></p>
