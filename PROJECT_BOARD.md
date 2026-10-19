@@ -33,8 +33,8 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [ ] Install instructions: the README has none, and `jb/index.md` has NBViewer links but no Binder; both are rewritten in steps 3, 5 and 6
 
 **2. Tests and CI**
-- [ ] `pytest --nbmake` on `soln/01_light_bulb.ipynb`, `soln/02_kaplan_meier.ipynb` (and the student versions if they run)
-- [ ] `.github/workflows/tests.yml`, badge in the README
+- [x] `pytest --nbmake soln/01_light_bulb.ipynb soln/02_kaplan_meier.ipynb` (passes locally, 2026-10-19). The student versions aren't tested: their blanks are empty cells whose results later cells use, so they stop with `NameError`
+- [x] `.github/workflows/tests.yml` (push to master, PR, monthly, manual; Python 3.12; pip; 20-minute timeout), badge in the README
 
 **3. Colab**
 - [ ] "Click here to run this notebook on Colab" cell after the title (solutions also link to the version with blanks); Colab links in the README
