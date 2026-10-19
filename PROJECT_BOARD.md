@@ -16,7 +16,7 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [x] `git fetch`, pulled `862a708` (README: venues, recordings, link to the workshops list)
 - [x] `PROJECT_BOARD.md` and `CLAUDE.md` (2026-10-19)
 - [x] Tags (pushed 2026-10-19): `pydata-global-2021` at `97458dc` (2021-10-27, the last commit before the 2021-10-29 session; the 2021-11-01 commits added the "Computing at risk" section to notebook 2, replaced its PMF-table approach, and changed "1000 samples" to "100" in notebook 1); `pre-refresh-2026` at `862a708`
-- [ ] README: the recording lists its tag (step 5)
+- [x] README: the recording lists its tag (step 5)
 - [x] Inventory (below)
 - [x] Leftovers moved to `extras/` (Allen: keep them, out of the way); untracked local files discarded (Decisions)
 - [x] `jb/`, `build.sh`, `remove_soln.py` committed (they were never in git, but the published site was built from `jb/`)
@@ -30,7 +30,7 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [x] Breakage and deprecation warnings: none. Both solution notebooks run with Deprecation/Future/PendingDeprecation/User/Runtime warnings as errors. The student versions stop at the first blank (`NameError`), as expected
 - [x] Data URL: `lamps.csv` now comes from this repo (`raw/master/lamps.csv`) instead of the third-party gist (content issue 3); the markdown cell before it reworded to match, with the thanks to Evgeny Pogrebnyak kept
 - [x] Student versions regenerated with `build.sh` (checked first that it reproduces the committed ones exactly)
-- [ ] Install instructions: the README has none, and `jb/index.md` has NBViewer links but no Binder; both are rewritten in steps 3, 5 and 6
+- [x] Install instructions in the README (step 5: Colab, then pip or mamba). `jb/index.md` still has NBViewer links (step 6)
 
 **2. Tests and CI**
 - [x] `pytest --nbmake soln/01_light_bulb.ipynb soln/02_kaplan_meier.ipynb` (passes locally, 2026-10-19). The student versions aren't tested: their blanks are empty cells whose results later cells use, so they stop with `NameError`
@@ -38,8 +38,8 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 
 **3. Colab**
 - [x] "Click here to run this notebook on Colab" cell after the title (2026-10-19); the solutions also link to the version with blanks. `remove_soln.py` rewrites the cell for the student versions, so `build.sh` keeps them right
-- [ ] Colab links in the README notebook table (step 5)
-- [ ] Allen runs one notebook on Colab end to end
+- [x] Colab links in the README notebook table (step 5)
+- [x] Allen ran notebook 2 (solutions) on Colab end to end (2026-10-19)
 
 **4. Text**
 - [x] Typos (2026-10-19): "I'll use I'll use", "from from", "distrbution", "wonder that that means" → "what that means" (notebook 1); "the Survival function" → "survival" (notebook 2)
@@ -47,7 +47,7 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [x] Landing page (`jb/index.md`, Allen): "work in progress" dropped; the video link now goes to YouTube instead of the Zoom recording
 
 **5. README in the standard shape**
-- [ ] Title, badge, author, abstract, level and prerequisites, length (ask Allen), outline, notebook table, slides, recording with tag, running instructions, next steps (*Think Stats*, hub), license
+- [x] README rewritten (2026-10-19): badge, author, abstract (adapted from the PyData Global 2021 abstract), level (beginner, from its prerequisites; Allen to confirm), length (90 minutes), outline, notebook table with Colab links, slides, recording with its tag, running instructions, a line about `extras/`, next steps (*Think Stats* chapter 13, survival analysis; the hub), license (MIT code, CC BY-NC-SA text)
 
 **6. Site and visibility**
 - [ ] Rework `jb/` on the BayesMadeSimple template (`prep_notebooks.py`, `build.sh [publish]`, clean URLs, page H1s, descriptions); landing title not "Outline"
@@ -97,3 +97,4 @@ Open:
 3. Notebook 1, summary: "we computed the `Pmf` directly from the data, then computed the `Cdf`…": `Pmf`/`Cdf` are the `empiricaldist` class names from an earlier version; the notebook now uses pandas `Series` (elsewhere it says PMF and CDF).
 4. Notebook 2, lifelines section: "Now we need two sequences, the durations, including complete and ongoing cases." names only one of the two sequences (the event flags come in the next cell).
 5. Notebook 2: "`timelines` includes an element at `t=0`": the lifelines index is called `timeline`.
+6. The PyData Global 2021 abstract says "three case studies" with examples "from health, engineering, and social science"; the repo has two notebooks (light bulbs, dog shelter). The README describes the two. Was a third notebook planned or cut?
