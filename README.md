@@ -12,7 +12,7 @@ The tutorial site is [allendowney.github.io/SurvivalAnalysisPython](https://alle
 
 This is one of [my workshops and tutorials](https://allendowney.github.io/#workshops).
 
-**Level:** beginner. You should know basic Python; familiarity with pandas helps, but isn't required. You don't need any background in survival analysis.
+**Level:** intermediate. You should know basic Python; familiarity with pandas helps, but isn't required. You don't need any background in survival analysis.
 
 **Length:** about 90 minutes.
 

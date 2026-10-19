@@ -47,7 +47,7 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [x] Landing page (`jb/index.md`, Allen): "work in progress" dropped; the video link now goes to YouTube instead of the Zoom recording
 
 **5. README in the standard shape**
-- [x] README rewritten (2026-10-19): badge, author, abstract (adapted from the PyData Global 2021 abstract), level (beginner, from its prerequisites; Allen to confirm), length (90 minutes), outline, notebook table with Colab links, slides, recording with its tag, running instructions, a line about `extras/`, next steps (*Think Stats* chapter 13, survival analysis; the hub), license (MIT code, CC BY-NC-SA text)
+- [x] README rewritten (2026-10-19): badge, author, abstract (adapted from the PyData Global 2021 abstract), level (intermediate, Allen), length (90 minutes), outline, notebook table with Colab links, slides, recording with its tag, running instructions, a line about `extras/`, next steps (*Think Stats* chapter 13, survival analysis; the hub), license (MIT code, CC BY-NC-SA text)
 
 **6. Site and visibility**
 - [ ] Rework `jb/` on the BayesMadeSimple template (`prep_notebooks.py`, `build.sh [publish]`, clean URLs, page H1s, descriptions); landing title not "Outline"
@@ -88,13 +88,8 @@ Student versions are made from the solutions by `build.sh` + `remove_soln.py` (c
 
 (For Allen to decide.)
 
-Resolved 2026-10-19 (Allen): landing page updated (step 4); `lamps.csv` stays in this repo; copyright lines stay 2021.
+Resolved 2026-10-19 (Allen): landing page updated (step 4); `lamps.csv` stays in this repo; copyright lines stay 2021. Also resolved (Allen, dialog): two notebooks is the workshop (the abstract's "three case studies" needs no change); the five wording fixes made in both versions: hazard rate is the fraction of bulbs that survive until `t` "that fail at `t`"; "percentages" → "fractions"; summary `Pmf`/`Cdf` → PMF/CDF; "two sequences. The first is the durations…"; "The index, `timeline`, …".
 
 Open:
 
-1. Notebook 1, hazard function: "the hazard rate is the fraction of light bulbs that survive until `t` and then fail at `t`" reads as an unconditional fraction. It's the fraction *of those that survive until `t`* that fail at `t`, which is how the bullet list just below it computes it.
-2. Notebook 1, cumulative hazard: "The values of the hazard function are rates, that is, percentages of light bulbs…": they're fractions (conditional probabilities), not percentages.
-3. Notebook 1, summary: "we computed the `Pmf` directly from the data, then computed the `Cdf`…": `Pmf`/`Cdf` are the `empiricaldist` class names from an earlier version; the notebook now uses pandas `Series` (elsewhere it says PMF and CDF).
-4. Notebook 2, lifelines section: "Now we need two sequences, the durations, including complete and ongoing cases." names only one of the two sequences (the event flags come in the next cell).
-5. Notebook 2: "`timelines` includes an element at `t=0`": the lifelines index is called `timeline`.
-6. The PyData Global 2021 abstract says "three case studies" with examples "from health, engineering, and social science"; the repo has two notebooks (light bulbs, dog shelter). The README describes the two. Was a third notebook planned or cut?
+(none)
