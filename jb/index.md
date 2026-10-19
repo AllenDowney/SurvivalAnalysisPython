@@ -45,4 +45,6 @@ Kaplan-Meier estimation, using a dog shelter as an example.
 
 Copyright 2021 Allen B. Downey
 
-License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+Code license: [MIT License](https://mit-license.org/)
+
+Text license: [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)

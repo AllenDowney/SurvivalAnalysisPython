@@ -34,7 +34,7 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 
 **2. Tests and CI**
 - [x] `pytest --nbmake soln/01_light_bulb.ipynb soln/02_kaplan_meier.ipynb` (passes locally, 2026-10-19). The student versions aren't tested: their blanks are empty cells whose results later cells use, so they stop with `NameError`
-- [x] `.github/workflows/tests.yml` (push to master, PR, monthly, manual; Python 3.12; pip; 20-minute timeout), badge in the README
+- [x] `.github/workflows/tests.yml` (push to master, PR, monthly, manual; Python 3.12; pip; 20-minute timeout), badge in the README. First run passed (2026-10-19)
 
 **3. Colab**
 - [ ] "Click here to run this notebook on Colab" cell after the title (solutions also link to the version with blanks); Colab links in the README
@@ -79,12 +79,12 @@ Student versions are made from the solutions by `build.sh` + `remove_soln.py` (c
 - Untracked local files discarded (small ones backed up first; `SEER/` not backed up).
 - `jb/` committed as the starting point for step 6.
 - Length: 90 minutes, for the README.
+- License: MIT for the code, CC BY-NC-SA 4.0 for the text. The notebook footers and `jb/index.md` now say both, in the books' wording ("Code license: … / Text license: …"); `LICENSE` stays MIT; the README says both (step 5).
 
 ### Content issues
 
 (For Allen to decide.)
 
-1. License: the notebooks and `jb/index.md` say CC BY-NC-SA 4.0; the `LICENSE` file says MIT (2019). Which one?
-2. `jb/index.md`: "This material is a work in progress"; the video link is a Zoom recording, not the YouTube video.
-3. Notebook 1 downloaded `lamps.csv` from a third-party gist; switched to the copy in this repo in step 1 (revert if you prefer the gist).
-4. Copyright lines say 2021.
+1. `jb/index.md`: "This material is a work in progress"; the video link is a Zoom recording, not the YouTube video.
+2. Notebook 1 downloaded `lamps.csv` from a third-party gist; switched to the copy in this repo in step 1 (revert if you prefer the gist).
+3. Copyright lines say 2021.
