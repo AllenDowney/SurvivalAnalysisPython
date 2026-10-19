@@ -3,7 +3,7 @@
 This tutorial is an introduction to survival analysis using
 computation rather than math.
 
-This material is a work in progress, so your feedback is welcome.  The best way to provide that feedback is to [click here and create an issue in this GitHub repository](https://github.com/AllenDowney/SurvivalAnalysisPython/issues).
+Your feedback is welcome.  The best way to provide it is to [click here and create an issue in this GitHub repository](https://github.com/AllenDowney/SurvivalAnalysisPython/issues).
 
 
 ## Videos and Slides
@@ -12,7 +12,7 @@ I presented this tutorial for [PyData Global 2021](https://pydata.org/global2021
 
 Here are the [slides I presented](https://docs.google.com/presentation/d/e/2PACX-1vQfYxM-Fy8TScRbUyYSWqeyNtPy8teV_d6tieSVdIK5qRHYbuTcx9CKVRGbZzjiaJ2x5NAgy1Jddb4_/pub)
 
-And [Here is the video](https://zoom.us/rec/share/i_TIGU29hOeE07xjCM0DuJuOzFxjp-7XhxTLKXDFU1sgdLt2PJeveRnHWeU_Sluj.U6V6dlafHxoOyINw).
+And [here is the video](https://www.youtube.com/watch?v=3GL0AIlzR4Q).
 
 
 ## The notebooks

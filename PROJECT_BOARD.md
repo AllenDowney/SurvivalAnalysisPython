@@ -42,7 +42,9 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [ ] Allen runs one notebook on Colab end to end
 
 **4. Text**
-- [ ] Typos, wrong docstrings, broken links (codespell, read the markdown); everything else under "Content issues"
+- [x] Typos (2026-10-19): "I'll use I'll use", "from from", "distrbution", "wonder that that means" → "what that means" (notebook 1); "the Survival function" → "survival" (notebook 2)
+- [x] Links: matplotlib `api/axes_api.html` → `stable/api/axes_api.html` (redirect). The gist, PyData schedule, Google Slides, YouTube and license links all work. Everything else is under "Content issues"
+- [x] Landing page (`jb/index.md`, Allen): "work in progress" dropped; the video link now goes to YouTube instead of the Zoom recording
 
 **5. README in the standard shape**
 - [ ] Title, badge, author, abstract, level and prerequisites, length (ask Allen), outline, notebook table, slides, recording with tag, running instructions, next steps (*Think Stats*, hub), license
@@ -86,6 +88,12 @@ Student versions are made from the solutions by `build.sh` + `remove_soln.py` (c
 
 (For Allen to decide.)
 
-1. `jb/index.md`: "This material is a work in progress"; the video link is a Zoom recording, not the YouTube video.
-2. Notebook 1 downloaded `lamps.csv` from a third-party gist; switched to the copy in this repo in step 1 (revert if you prefer the gist).
-3. Copyright lines say 2021.
+Resolved 2026-10-19 (Allen): landing page updated (step 4); `lamps.csv` stays in this repo; copyright lines stay 2021.
+
+Open:
+
+1. Notebook 1, hazard function: "the hazard rate is the fraction of light bulbs that survive until `t` and then fail at `t`" reads as an unconditional fraction. It's the fraction *of those that survive until `t`* that fail at `t`, which is how the bullet list just below it computes it.
+2. Notebook 1, cumulative hazard: "The values of the hazard function are rates, that is, percentages of light bulbs…": they're fractions (conditional probabilities), not percentages.
+3. Notebook 1, summary: "we computed the `Pmf` directly from the data, then computed the `Cdf`…": `Pmf`/`Cdf` are the `empiricaldist` class names from an earlier version; the notebook now uses pandas `Series` (elsewhere it says PMF and CDF).
+4. Notebook 2, lifelines section: "Now we need two sequences, the durations, including complete and ongoing cases." names only one of the two sequences (the event flags come in the next cell).
+5. Notebook 2: "`timelines` includes an element at `t=0`": the lifelines index is called `timeline`.
