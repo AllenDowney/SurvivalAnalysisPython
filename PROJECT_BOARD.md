@@ -37,7 +37,8 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [x] `.github/workflows/tests.yml` (push to master, PR, monthly, manual; Python 3.12; pip; 20-minute timeout), badge in the README. First run passed (2026-10-19)
 
 **3. Colab**
-- [ ] "Click here to run this notebook on Colab" cell after the title (solutions also link to the version with blanks); Colab links in the README
+- [x] "Click here to run this notebook on Colab" cell after the title (2026-10-19); the solutions also link to the version with blanks. `remove_soln.py` rewrites the cell for the student versions, so `build.sh` keeps them right
+- [ ] Colab links in the README notebook table (step 5)
 - [ ] Allen runs one notebook on Colab end to end
 
 **4. Text**
