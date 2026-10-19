@@ -1,0 +1,5 @@
+format: jb-article
+root: index
+sections:
+- file: 01_light_bulb
+- file: 02_kaplan_meier

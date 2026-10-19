@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Jupyter Book: build output and the notebooks build.sh copies in
+jb/_build/
+jb/*.ipynb

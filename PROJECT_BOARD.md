@@ -1,0 +1,86 @@
+# Survival Analysis in Python (workshop) Project Board
+
+Numbered tasks for tracking work. Each task has a permanent number; add new tasks at the end. Update status as work progresses.
+
+**Status values:** `Pending`, `In progress`, `DONE`
+
+---
+
+## Task 1: Refresh
+
+**Status:** In progress (2026-10-19)
+
+**Context:** SurvivalAnalysisPython is a "current" workshop (GreenTeaPress Task 24). The guide is the refresh checklist in `~/GreenTeaPress/plans/workshops.md` ("Refresh checklist"); BayesMadeSimple is the worked example. 50 stars; last workshop change 2021-11-01, last commit 2023-02-14 (`read_seer.ipynb`). Given once, at PyData Global 2021 (2021-10-29, [video](https://www.youtube.com/watch?v=3GL0AIlzR4Q)). This task replaces the SEO-only Task 1 from 2026-10-18; the SEO steps are now in step 6. The 2026-10-18 audit found no meta descriptions, no sitemap, and a landing page titled "Outline".
+
+**0. Set up**
+- [x] `git fetch`, pulled `862a708` (README: venues, recordings, link to the workshops list)
+- [x] `PROJECT_BOARD.md` and `CLAUDE.md` (2026-10-19)
+- [x] Tags (pushed 2026-10-19): `pydata-global-2021` at `97458dc` (2021-10-27, the last commit before the 2021-10-29 session; the 2021-11-01 commits added the "Computing at risk" section to notebook 2, replaced its PMF-table approach, and changed "1000 samples" to "100" in notebook 1); `pre-refresh-2026` at `862a708`
+- [ ] README: the recording lists its tag (step 5)
+- [x] Inventory (below)
+- [x] Leftovers moved to `extras/` (Allen: keep them, out of the way); untracked local files discarded (Decisions)
+- [x] `jb/`, `build.sh`, `remove_soln.py` committed (they were never in git, but the published site was built from `jb/`)
+- [ ] Environment: `mamba env create -f environment.yml` (after step 1 rewrites it)
+
+**1. Runs in a current environment**
+- [ ] `environment.yml` (Python 3.12, conda-forge, pytest, nbmake, Jupyter Book tools), `requirements.txt`, `requirements-dev.txt`
+- [ ] First code cell installs what Colab lacks (lifelines) and downloads `lamps.csv` if missing; drop `!wget` and the `IN_COLAB` logic if simpler
+- [ ] Breakage and deprecation warnings (warnings as errors in scratch copies)
+- [ ] Data URL: `lamps.csv` comes from a third-party gist; prefer the copy in this repo
+- [ ] Binder/old install instructions → Colab, then pip or mamba
+
+**2. Tests and CI**
+- [ ] `pytest --nbmake` on `soln/01_light_bulb.ipynb`, `soln/02_kaplan_meier.ipynb` (and the student versions if they run)
+- [ ] `.github/workflows/tests.yml`, badge in the README
+
+**3. Colab**
+- [ ] "Click here to run this notebook on Colab" cell after the title (solutions also link to the version with blanks); Colab links in the README
+- [ ] Allen runs one notebook on Colab end to end
+
+**4. Text**
+- [ ] Typos, wrong docstrings, broken links (codespell, read the markdown); everything else under "Content issues"
+
+**5. README in the standard shape**
+- [ ] Title, badge, author, abstract, level and prerequisites, length (ask Allen), outline, notebook table, slides, recording with tag, running instructions, next steps (*Think Stats*, hub), license
+
+**6. Site and visibility**
+- [ ] Rework `jb/` on the BayesMadeSimple template (`prep_notebooks.py`, `build.sh [publish]`, clean URLs, page H1s, descriptions); landing title not "Outline"
+- [ ] SEO checklist (`~/GreenTeaPress/plans/seo.md`): `sphinx-sitemap`, `sphinxext-opengraph`, base URL, social image (*Think Stats* cover?), page-view counter `extra_footer`, descriptions (Allen reviews), canonical
+- [ ] Publish: `./build.sh publish` (also clears the stray `polviews`/`01_clean`/`03_outlook`/`04_worldview` pages on `gh-pages`, from another project); `Sitemap:` line in `~/AllenDowney.github.io/robots.txt`; Allen submits it in Search Console; tick in GreenTeaPress Task 22
+- [ ] Hub entry, repo description, website field and topics (`jupyter-book`)
+
+**7. Close**
+- [ ] Tag `2026-refresh`; note in GreenTeaPress Task 24
+
+### Inventory (2026-10-19)
+
+**The workshop (PyData Global 2021, 2 notebooks, student versions at the root, solutions in `soln/`):**
+
+| Notebook | Topic | Imports | Data |
+|---|---|---|---|
+| `01_light_bulb` / `soln/01_light_bulb` | PMF, CDF, survival and hazard functions; light bulb lifetimes | numpy, pandas, scipy.stats, matplotlib | `lamps.csv` (`!wget` from a gist on Colab; also at the repo root) |
+| `02_kaplan_meier` / `soln/02_kaplan_meier` | Kaplan-Meier estimation; dog shelter example; lifelines | + `lifelines` | none (made-up data in the notebook) |
+
+Student versions are made from the solutions by `build.sh` + `remove_soln.py` (clears `# Solution` cells and `fill-in` cells, strips outputs). The notebooks have a Colab link already ("Run this notebook on Colab", not the house wording). No `requirements.txt`, no tests, no CI. `environment.yml` is from 2019 (Python 3.7, `empiricaldist`, `tabula-py`, `wget`; the workshop needs none of these three).
+
+**Site:** `jb/` (Jupyter Book 1, `jb-article` format, `execute_notebooks: off`), published to `gh-pages` by hand 2021-11-01. `jb/index.md` is the landing page ("Outline"): slides (Google Slides), a Zoom recording link, Colab and NBViewer links.
+
+**Leftovers (moved to `extras/` 2026-10-19):** 2019–2020 explorations and drafts: `birth`, `fertility`, `kaplan-meier`, `light_bulb`, `life_table`, `marriage`, `nhl`, `popcorn`, `weibull`, `test`, `read_life_table`, `read_marriage`, `read_seer` (updated 2023), with `utils.py`, `nhl.hdf5`, `nsfg.hdf5` and `data/`. Not tested.
+
+**Local state not in git (discarded 2026-10-19; all but `SEER/` backed up to the session scratchpad):** `SEER/` (6.1 GB raw SEER 1975–2016 data, downloadable again), NSFG 2015–2017 female respondent `.dat`/`.dct`, `brain.hd5`/`brain.hdf`, `mortality.ipynb` (2023), `Single_year_death_rates.txt`, `data/nvsr67_07-508.csv`, the gist zip of `lamps.csv`, copies of `empiricaldist.py` and its tests, `environment.yml~`, checkpoints; a kernel-metadata-only edit to `read_life_table.ipynb`.
+
+### Decisions (Allen, 2026-10-19)
+
+- Tags `pydata-global-2021` and `pre-refresh-2026` created and pushed.
+- Leftovers go to `extras/`, not deleted.
+- Untracked local files discarded (small ones backed up first; `SEER/` not backed up).
+- `jb/` committed as the starting point for step 6.
+
+### Content issues
+
+(For Allen to decide.)
+
+1. License: the notebooks and `jb/index.md` say CC BY-NC-SA 4.0; the `LICENSE` file says MIT (2019). Which one?
+2. `jb/index.md`: "This material is a work in progress"; the video link is a Zoom recording, not the YouTube video.
+3. Notebook 1 downloads `lamps.csv` from a third-party gist; switch to the copy in this repo?
+4. Copyright lines say 2021.
