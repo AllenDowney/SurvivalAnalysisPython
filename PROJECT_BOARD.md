@@ -52,9 +52,10 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 **6. Site and visibility**
 - [x] `jb/` reworked on the BayesMadeSimple template (2026-10-19): `jb-book` format; `build.sh [publish]` runs `prep_notebooks.py` (copies the solutions from `soln/`, sets page titles, writes the descriptions, copies `lamps.csv`) and `jb build` (executes the notebooks). Notebook 1's page H1 is "Survival and Hazard Functions" instead of "Survival Analysis". New landing page in the README's shape, H1 "Computational Survival Analysis: A Tutorial in Python" (the PyData title), with no NBViewer links. Build tools are in `environment.yml`
 - [x] SEO checklist in a scratch test build: sitemap lists only the 3 pages; each page has one description, one `og:description`, `rel="canonical"`; landing H1 differs from the site title; page-view counter in `extra_footer`; social image is the *Think Stats* 3e cover. No `jupytext.toml` (no `.md` pairs)
-- [ ] Allen reviews the page titles and three descriptions (`jb/index.md` front matter, `jb/prep_notebooks.py`)
-- [ ] Publish: `./build.sh publish` (also clears the stray `polviews`/`01_clean`/`03_outlook`/`04_worldview` pages on `gh-pages`, from another project); `Sitemap:` line in `~/AllenDowney.github.io/robots.txt`; Allen submits it in Search Console; tick in GreenTeaPress Task 22
-- [ ] Hub entry, repo description, website field and topics (`jupyter-book`)
+- [x] Allen approved the page titles and the three descriptions (2026-10-19)
+- [x] Published (2026-10-19): `./build.sh publish` to `gh-pages` (Pages already served `gh-pages`; no root Jekyll `_config.yml`). The first publish carried stale pages from the 2021 local `jb/_build/` (`polviews` etc.); deleted `_build/` and republished, so `gh-pages` now has only the 3 pages, `genindex`, `search` and the sitemap. `Sitemap:` line in `~/AllenDowney.github.io/robots.txt` (pushed); GreenTeaPress Task 22 updated
+- [ ] Allen submits `https://allendowney.github.io/SurvivalAnalysisPython/sitemap.xml` in Search Console
+- [x] Repo description ("A tutorial on survival analysis in Python, using computation rather than math") and `jupyter-book` topic (also in GreenTeaPress `scripts/repo_about.sh`); website field was already set. Hub entry unchanged (still accurate)
 
 **7. Close**
 - [ ] Tag `2026-refresh`; note in GreenTeaPress Task 24
