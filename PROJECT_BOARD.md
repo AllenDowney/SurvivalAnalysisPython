@@ -50,8 +50,9 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [x] README rewritten (2026-10-19): badge, author, abstract (adapted from the PyData Global 2021 abstract), level (intermediate, Allen), length (90 minutes), outline, notebook table with Colab links, slides, recording with its tag, running instructions, a line about `extras/`, next steps (*Think Stats* chapter 13, survival analysis; the hub), license (MIT code, CC BY-NC-SA text)
 
 **6. Site and visibility**
-- [ ] Rework `jb/` on the BayesMadeSimple template (`prep_notebooks.py`, `build.sh [publish]`, clean URLs, page H1s, descriptions); landing title not "Outline"
-- [ ] SEO checklist (`~/GreenTeaPress/plans/seo.md`): `sphinx-sitemap`, `sphinxext-opengraph`, base URL, social image (*Think Stats* cover?), page-view counter `extra_footer`, descriptions (Allen reviews), canonical
+- [x] `jb/` reworked on the BayesMadeSimple template (2026-10-19): `jb-book` format; `build.sh [publish]` runs `prep_notebooks.py` (copies the solutions from `soln/`, sets page titles, writes the descriptions, copies `lamps.csv`) and `jb build` (executes the notebooks). Notebook 1's page H1 is "Survival and Hazard Functions" instead of "Survival Analysis". New landing page in the README's shape, H1 "Computational Survival Analysis: A Tutorial in Python" (the PyData title), with no NBViewer links. Build tools are in `environment.yml`
+- [x] SEO checklist in a scratch test build: sitemap lists only the 3 pages; each page has one description, one `og:description`, `rel="canonical"`; landing H1 differs from the site title; page-view counter in `extra_footer`; social image is the *Think Stats* 3e cover. No `jupytext.toml` (no `.md` pairs)
+- [ ] Allen reviews the page titles and three descriptions (`jb/index.md` front matter, `jb/prep_notebooks.py`)
 - [ ] Publish: `./build.sh publish` (also clears the stray `polviews`/`01_clean`/`03_outlook`/`04_worldview` pages on `gh-pages`, from another project); `Sitemap:` line in `~/AllenDowney.github.io/robots.txt`; Allen submits it in Search Console; tick in GreenTeaPress Task 22
 - [ ] Hub entry, repo description, website field and topics (`jupyter-book`)
 

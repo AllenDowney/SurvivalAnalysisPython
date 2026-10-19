@@ -109,3 +109,4 @@ jb/*.ipynb
 
 # downloaded by the notebooks when run from soln/
 soln/lamps.csv
+jb/lamps.csv

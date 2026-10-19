@@ -1,5 +1,5 @@
-format: jb-article
+format: jb-book
 root: index
-sections:
+chapters:
 - file: 01_light_bulb
 - file: 02_kaplan_meier
