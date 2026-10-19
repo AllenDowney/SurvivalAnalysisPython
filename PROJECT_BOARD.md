@@ -20,14 +20,17 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [x] Inventory (below)
 - [x] Leftovers moved to `extras/` (Allen: keep them, out of the way); untracked local files discarded (Decisions)
 - [x] `jb/`, `build.sh`, `remove_soln.py` committed (they were never in git, but the published site was built from `jb/`)
-- [ ] Environment: `mamba env create -f environment.yml` (after step 1 rewrites it)
+- [x] Environment: `mamba env create -f environment.yml` (created 2026-10-19 as `SurvivalAnalysisPython`)
 
 **1. Runs in a current environment**
-- [ ] `environment.yml` (Python 3.12, conda-forge, pytest, nbmake, Jupyter Book tools), `requirements.txt`, `requirements-dev.txt`
-- [ ] First code cell installs what Colab lacks (lifelines) and downloads `lamps.csv` if missing; drop `!wget` and the `IN_COLAB` logic if simpler
-- [ ] Breakage and deprecation warnings (warnings as errors in scratch copies)
-- [ ] Data URL: `lamps.csv` comes from a third-party gist; prefer the copy in this repo
-- [ ] Binder/old install instructions → Colab, then pip or mamba
+- [x] `environment.yml` rewritten (2026-10-19): Python 3.12, conda-forge, numpy, pandas, scipy, matplotlib, lifelines, Jupyter, pytest, nbmake, Jupyter Book tools; the 2019 extras (`empiricaldist`, `pytables`, `seaborn`, `tabula-py`, `wget`) dropped. Env: NumPy 2.5.4, pandas 2.3.3, SciPy 1.18.1, Matplotlib 3.11.2, lifelines 0.30.3
+- [x] `requirements.txt` (unpinned; Colab lacks only lifelines) and `requirements-dev.txt` (adds Jupyter, pytest, nbmake)
+- [x] pandas 3: lifelines 0.30.3 requires `pandas<3`, so the env (and Colab after `pip install lifelines`) stays on pandas 2.x. Notebook 1 doesn't use lifelines and also runs clean on pandas 3.0.6 (scratch venv)
+- [x] First code cell: notebook 2 installs lifelines if it can't import it (`%pip install -q`), replacing the `IN_COLAB` cell before the lifelines section. Notebook 1 downloads `lamps.csv` with a `download()` function (no `!wget`) if it's missing
+- [x] Breakage and deprecation warnings: none. Both solution notebooks run with Deprecation/Future/PendingDeprecation/User/Runtime warnings as errors. The student versions stop at the first blank (`NameError`), as expected
+- [x] Data URL: `lamps.csv` now comes from this repo (`raw/master/lamps.csv`) instead of the third-party gist (content issue 3); the markdown cell before it reworded to match, with the thanks to Evgeny Pogrebnyak kept
+- [x] Student versions regenerated with `build.sh` (checked first that it reproduces the committed ones exactly)
+- [ ] Install instructions: the README has none, and `jb/index.md` has NBViewer links but no Binder; both are rewritten in steps 3, 5 and 6
 
 **2. Tests and CI**
 - [ ] `pytest --nbmake` on `soln/01_light_bulb.ipynb`, `soln/02_kaplan_meier.ipynb` (and the student versions if they run)
@@ -75,6 +78,7 @@ Student versions are made from the solutions by `build.sh` + `remove_soln.py` (c
 - Leftovers go to `extras/`, not deleted.
 - Untracked local files discarded (small ones backed up first; `SEER/` not backed up).
 - `jb/` committed as the starting point for step 6.
+- Length: 90 minutes, for the README.
 
 ### Content issues
 
@@ -82,5 +86,5 @@ Student versions are made from the solutions by `build.sh` + `remove_soln.py` (c
 
 1. License: the notebooks and `jb/index.md` say CC BY-NC-SA 4.0; the `LICENSE` file says MIT (2019). Which one?
 2. `jb/index.md`: "This material is a work in progress"; the video link is a Zoom recording, not the YouTube video.
-3. Notebook 1 downloads `lamps.csv` from a third-party gist; switch to the copy in this repo?
+3. Notebook 1 downloaded `lamps.csv` from a third-party gist; switched to the copy in this repo in step 1 (revert if you prefer the gist).
 4. Copyright lines say 2021.

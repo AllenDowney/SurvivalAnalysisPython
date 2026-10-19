@@ -106,3 +106,6 @@ venv.bak/
 # Jupyter Book: build output and the notebooks build.sh copies in
 jb/_build/
 jb/*.ipynb
+
+# downloaded by the notebooks when run from soln/
+soln/lamps.csv

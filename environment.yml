@@ -1,19 +1,19 @@
 name: SurvivalAnalysisPython
 channels:
-- conda-forge
-- defaults
+  - conda-forge
 dependencies:
-  - python=3.7
+  - python=3.12
   - jupyter
   - numpy
-  - scipy>=1.2
   - pandas
-  - lifelines>=0.23
-  - pytables
+  - scipy
   - matplotlib
-  - seaborn
-  - tabula-py
-  - wget
-  - pip
-  - pip:
-    - empiricaldist
+  - lifelines
+  # for testing
+  - pytest
+  - nbmake
+  # for building the site (jb/build.sh)
+  - jupyter-book<2
+  - sphinx-sitemap
+  - sphinxext-opengraph
+  - ghp-import
