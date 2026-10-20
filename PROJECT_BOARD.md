@@ -8,7 +8,7 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 
 ## Task 1: Refresh
 
-**Status:** In progress (2026-10-19)
+**Status:** DONE (2026-10-19), except Allen's Search Console sitemap submission
 
 **Context:** SurvivalAnalysisPython is a "current" workshop (GreenTeaPress Task 24). The guide is the refresh checklist in `~/GreenTeaPress/plans/workshops.md` ("Refresh checklist"); BayesMadeSimple is the worked example. 50 stars; last workshop change 2021-11-01, last commit 2023-02-14 (`read_seer.ipynb`). Given once, at PyData Global 2021 (2021-10-29, [video](https://www.youtube.com/watch?v=3GL0AIlzR4Q)). This task replaces the SEO-only Task 1 from 2026-10-18; the SEO steps are now in step 6. The 2026-10-18 audit found no meta descriptions, no sitemap, and a landing page titled "Outline".
 
@@ -58,7 +58,7 @@ Numbered tasks for tracking work. Each task has a permanent number; add new task
 - [x] Repo description ("A tutorial on survival analysis in Python, using computation rather than math") and `jupyter-book` topic (also in GreenTeaPress `scripts/repo_about.sh`); website field was already set. Hub entry unchanged (still accurate)
 
 **7. Close**
-- [ ] Tag `2026-refresh`; note in GreenTeaPress Task 24
+- [x] Tag `2026-refresh` (pushed 2026-10-19); note in GreenTeaPress Task 24
 
 ### Inventory (2026-10-19)
 
